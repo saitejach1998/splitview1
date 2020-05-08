@@ -9,45 +9,45 @@ var is = require("electron-is");
 // Win10 with Git-Bash (windows Subsystem for Linux) https://git-scm.com/   https://git-for-windows.github.io/
 //
 
-function appendOutput(msg) { getCommandOutput().value += (msg+'\n'); };
-function setStatus(msg)    { getStatus().innerHTML = msg; };
+function appendOutput(msg) { getCommandOutput().value += (msg + '\n'); };
+function setStatus(msg) { getStatus().innerHTML = msg; };
 
 function showOS() {
-    if (is.windows())
-      appendOutput("Windows Detected.")
-    if (is.macOS())
-      appendOutput("Apple OS Detected.")
-    if (is.linux())
-      appendOutput("Linux Detected.")
+  if (is.windows())
+    appendOutput("Windows Detected.")
+  if (is.macOS())
+    appendOutput("Apple OS Detected.")
+  if (is.linux())
+    appendOutput("Linux Detected.")
 }
 
 function backgroundProcess() {
-    const process = require('child_process');   // The power of Node.JS
+  const process = require('child_process');   // The power of Node.JS
 
-    showOS();
-    var cmd = (is.windows()) ? 'test.bat' : './test.sh';      
-    console.log('cmd:', cmd);
-        
-    var child = process.spawn(cmd); 
+  showOS();
+  var cmd = (is.windows()) ? 'test.bat' : './test.sh';
+  console.log('cmd:', cmd);
 
-    child.on('error', function(err) {
-      appendOutput('stderr: <'+err+'>' );
-    });
+  var child = process.spawn(cmd);
 
-    child.stdout.on('data', function (data) {
-      appendOutput(data);
-    });
+  child.on('error', function (err) {
+    appendOutput('stderr: <' + err + '>');
+  });
 
-    child.stderr.on('data', function (data) {
-      appendOutput('stderr: <'+data+'>' );
-    });
+  child.stdout.on('data', function (data) {
+    appendOutput(data);
+  });
 
-    child.on('close', function (code) {
-        if (code == 0)
-          setStatus('child process complete.');
-        else
-          setStatus('child process exited with code ' + code);
+  child.stderr.on('data', function (data) {
+    appendOutput('stderr: <' + data + '>');
+  });
 
-        getCommandOutput().style.background = "DarkGray";
-    });
+  child.on('close', function (code) {
+    if (code == 0)
+      setStatus('child process complete.');
+    else
+      setStatus('child process exited with code ' + code);
+
+    getCommandOutput().style.background = "DarkGray";
+  });
 };

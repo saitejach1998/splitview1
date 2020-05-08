@@ -1,9 +1,13 @@
 {
-  "name": "mm",
+  "name": "GUI",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "electron ."
+  },
   "dependencies": {
-    "electron": "^8.2.5"
+    "electron": "^8.2.5",
+    "package.json": "^2.0.1"
   }
 }

@@ -10,7 +10,6 @@
 	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
 	overflow: hidden;
   background:#2C5364; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 	font-family: "Open Sans", Helvetica, sans-serif;
 }
 
@@ -22,7 +21,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 500px;
-	height: 360px;
+	height: 400px;
 	border-radius: 15px;
 	box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
 	background: #0F2027;
@@ -83,4 +82,15 @@ h1 {
 .btn:hover {
 	background: rebeccapurple;
 	box-shadow: 0 3px 0 0 deeppink;
+}
+
+.text-area{
+	
+	left: 30%;
+}
+
+textarea{
+	overflow-y: scroll;
+	height: 100px;
+	resize: none;
 }
