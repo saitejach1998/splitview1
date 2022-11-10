@@ -7,7 +7,7 @@
     "start": "electron ."
   },
   "dependencies": {
-    "electron": "^8.2.5",
+    "electron": "^18.3.7",
     "package.json": "^2.0.1"
   }
 }
